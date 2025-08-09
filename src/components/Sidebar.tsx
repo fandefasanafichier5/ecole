@@ -15,7 +15,8 @@ import {
   Calculator,
   Bell,
   Award,
-  BarChart3
+  BarChart3,
+  User
 } from 'lucide-react';
 
 interface SidebarProps {
