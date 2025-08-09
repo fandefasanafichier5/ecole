@@ -11,6 +11,7 @@ import NoticeBoard from './components/NoticeBoard';
 import SocialStats from './components/SocialStats';
 import FeesCollection from './components/FeesCollection';
 import StudentDetails from './components/StudentDetails';
+import AllStudentsData from './components/AllStudentsData';
 import { Users, GraduationCap, BookOpen, DollarSign } from 'lucide-react';
 
 function App() {
@@ -18,14 +19,55 @@ function App() {
 
   const renderContent = () => {
     switch (activeSection) {
+      case 'all-students':
+        return (
+          <>
+            <Header 
+              title="Tous les Étudiants" 
+              breadcrumb={['Accueil', 'Tous les Étudiants']} 
+            />
+            <AllStudentsData />
+          </>
+        );
+      case 'student-details':
       case 'students':
         return (
           <>
             <Header 
-              title="Étudiants" 
-              breadcrumb={['Accueil', 'Étudiants']} 
+              title="Détails Étudiant" 
+              breadcrumb={['Accueil', 'Détails Étudiant']} 
             />
             <StudentDetails />
+          </>
+        );
+      case 'admission-form':
+        return (
+          <>
+            <Header 
+              title="Formulaire d'Admission" 
+              breadcrumb={['Accueil', 'Formulaire d\'Admission']} 
+            />
+            <div className="p-6">
+              <div className="bg-white rounded-lg shadow-sm p-8 text-center">
+                <h2 className="text-xl font-semibold text-gray-800 mb-4">Formulaire d'Admission</h2>
+                <p className="text-gray-600">Cette section sera développée prochainement.</p>
+              </div>
+            </div>
+          </>
+        );
+      case 'student-promotion':
+        return (
+          <>
+            <Header 
+              title="Promotion Étudiant" 
+              breadcrumb={['Accueil', 'Promotion Étudiant']} 
+            />
+            <div className="p-6">
+              <div className="bg-white rounded-lg shadow-sm p-8 text-center">
+                <h2 className="text-xl font-semibold text-gray-800 mb-4">Promotion Étudiant</h2>
+                <p className="text-gray-600">Cette section sera développée prochainement.</p>
+              </div>
+            </div>
           </>
         );
       case 'account':

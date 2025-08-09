@@ -25,9 +25,30 @@ interface SidebarProps {
 }
 
 const Sidebar: React.FC<SidebarProps> = ({ activeSection = 'dashboard', onSectionChange }) => {
+  const [expandedMenus, setExpandedMenus] = React.useState<string[]>(['students']);
+
+  const toggleMenu = (key: string) => {
+    setExpandedMenus(prev => 
+      prev.includes(key) 
+        ? prev.filter(item => item !== key)
+        : [...prev, key]
+    );
+  };
+
   const menuItems = [
     { icon: Home, label: 'Tableau de bord', key: 'dashboard', active: activeSection === 'dashboard' },
-    { icon: Users, label: 'Étudiants', key: 'students', active: activeSection === 'students', count: 7 },
+    { 
+      icon: Users, 
+      label: 'Étudiants', 
+      key: 'students', 
+      active: activeSection === 'students' || activeSection === 'all-students' || activeSection === 'student-details' || activeSection === 'admission-form' || activeSection === 'student-promotion',
+      submenu: [
+        { label: 'Tous les Étudiants', key: 'all-students' },
+        { label: 'Détails Étudiant', key: 'student-details' },
+        { label: 'Formulaire d\'Admission', key: 'admission-form' },
+        { label: 'Promotion Étudiant', key: 'student-promotion' }
+      ]
+    },
     { icon: GraduationCap, label: 'Enseignants', count: 7 },
     { icon: BookOpen, label: 'Parents', count: 7 },
     { icon: Library, label: 'Bibliothèque' },
@@ -57,7 +78,16 @@ const Sidebar: React.FC<SidebarProps> = ({ activeSection = 'dashboard', onSectio
 
   const handleItemClick = (item: any) => {
     if (item.key && onSectionChange) {
+      if (item.submenu) {
+        toggleMenu(item.key);
+      }
       onSectionChange(item.key);
+    }
+  };
+
+  const handleSubItemClick = (subItem: any, parentKey: string) => {
+    if (subItem.key && onSectionChange) {
+      onSectionChange(subItem.key);
     }
   };
 
@@ -89,22 +119,35 @@ const Sidebar: React.FC<SidebarProps> = ({ activeSection = 'dashboard', onSectio
         {menuItems.map((item, index) => (
           <div key={index}>
             <div 
-              className={`flex items-center justify-between px-3 py-2 mb-1 rounded cursor-pointer hover:bg-slate-700 ${item.active ? 'bg-slate-700' : ''}`}
+              className={`flex items-center justify-between px-3 py-2 mb-1 rounded cursor-pointer hover:bg-slate-700 ${item.active ? 'bg-orange-500' : ''}`}
               onClick={() => handleItemClick(item)}
             >
               <div className="flex items-center space-x-3">
                 <item.icon className="w-4 h-4" />
                 <span className="text-sm">{item.label}</span>
               </div>
-              {item.count && (
-                <span className="bg-slate-600 text-xs px-2 py-1 rounded-full">{item.count}</span>
-              )}
+              <div className="flex items-center space-x-2">
+                {item.count && (
+                  <span className="bg-slate-600 text-xs px-2 py-1 rounded-full">{item.count}</span>
+                )}
+                {item.submenu && (
+                  <span className={`text-xs transition-transform ${expandedMenus.includes(item.key) ? 'rotate-90' : ''}`}>
+                    ▶
+                  </span>
+                )}
+              </div>
             </div>
-            {item.submenu && item.active && (
+            {item.submenu && expandedMenus.includes(item.key) && (
               <div className="ml-6 mb-2">
                 {item.submenu.map((subItem: any, subIndex: number) => (
-                  <div key={subIndex} className="px-3 py-1 text-sm text-slate-300 hover:text-white cursor-pointer">
-                    • {subItem.label}
+                  <div 
+                    key={subIndex} 
+                    className={`px-3 py-1 text-sm cursor-pointer hover:text-white ${
+                      activeSection === subItem.key ? 'text-orange-400' : 'text-slate-300'
+                    }`}
+                    onClick={() => handleSubItemClick(subItem, item.key)}
+                  >
+                    ▶ {subItem.label}
                   </div>
                 ))}
               </div>
