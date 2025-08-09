@@ -27,7 +27,7 @@ interface SidebarProps {
 const Sidebar: React.FC<SidebarProps> = ({ activeSection = 'dashboard', onSectionChange }) => {
   const menuItems = [
     { icon: Home, label: 'Tableau de bord', key: 'dashboard', active: activeSection === 'dashboard' },
-    { icon: Users, label: 'Étudiants', count: 7 },
+    { icon: Users, label: 'Étudiants', key: 'students', active: activeSection === 'students', count: 7 },
     { icon: GraduationCap, label: 'Enseignants', count: 7 },
     { icon: BookOpen, label: 'Parents', count: 7 },
     { icon: Library, label: 'Bibliothèque' },
@@ -43,13 +43,13 @@ const Sidebar: React.FC<SidebarProps> = ({ activeSection = 'dashboard', onSectio
     { icon: BarChart3, label: 'Rapports' },
     { 
       icon: User, 
-      label: 'Account', 
+      label: 'Compte', 
       key: 'account',
       active: activeSection === 'account',
       submenu: [
-        { label: 'All Fees Collection', key: 'fees-collection' },
-        { label: 'Expenses', key: 'expenses' },
-        { label: 'Add Expenses', key: 'add-expenses' }
+        { label: 'Collecte de Frais', key: 'fees-collection' },
+        { label: 'Dépenses', key: 'expenses' },
+        { label: 'Ajouter Dépenses', key: 'add-expenses' }
       ]
     },
     { icon: Settings, label: 'Paramètres' }

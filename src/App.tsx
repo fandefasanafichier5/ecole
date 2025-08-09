@@ -10,6 +10,7 @@ import WebsiteTraffic from './components/WebsiteTraffic';
 import NoticeBoard from './components/NoticeBoard';
 import SocialStats from './components/SocialStats';
 import FeesCollection from './components/FeesCollection';
+import StudentDetails from './components/StudentDetails';
 import { Users, GraduationCap, BookOpen, DollarSign } from 'lucide-react';
 
 function App() {
@@ -17,12 +18,22 @@ function App() {
 
   const renderContent = () => {
     switch (activeSection) {
+      case 'students':
+        return (
+          <>
+            <Header 
+              title="Étudiants" 
+              breadcrumb={['Accueil', 'Étudiants']} 
+            />
+            <StudentDetails />
+          </>
+        );
       case 'account':
         return (
           <>
             <Header 
-              title="All Fees Collection" 
-              breadcrumb={['Home', 'Fees Collection']} 
+              title="Collecte de Frais" 
+              breadcrumb={['Accueil', 'Collecte de Frais']} 
             />
             <FeesCollection />
           </>
