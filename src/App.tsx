@@ -12,6 +12,7 @@ import SocialStats from './components/SocialStats';
 import FeesCollection from './components/FeesCollection';
 import StudentDetails from './components/StudentDetails';
 import AllStudentsData from './components/AllStudentsData';
+import AdmissionForm from './components/AdmissionForm';
 import { Users, GraduationCap, BookOpen, DollarSign } from 'lucide-react';
 
 function App() {
@@ -47,12 +48,7 @@ function App() {
               title="Formulaire d'Admission" 
               breadcrumb={['Accueil', 'Formulaire d\'Admission']} 
             />
-            <div className="p-6">
-              <div className="bg-white rounded-lg shadow-sm p-8 text-center">
-                <h2 className="text-xl font-semibold text-gray-800 mb-4">Formulaire d'Admission</h2>
-                <p className="text-gray-600">Cette section sera développée prochainement.</p>
-              </div>
-            </div>
+            <AdmissionForm />
           </>
         );
       case 'student-promotion':
