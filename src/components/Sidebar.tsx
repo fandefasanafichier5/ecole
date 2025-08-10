@@ -52,7 +52,12 @@ const Sidebar: React.FC<SidebarProps> = ({ activeSection = 'dashboard', onSectio
     { icon: GraduationCap, label: 'Enseignants', count: 7 },
     { icon: BookOpen, label: 'Parents', count: 7 },
     { icon: Library, label: 'Bibliothèque' },
-    { icon: UserCheck, label: 'Présences' },
+    { 
+      icon: UserCheck, 
+      label: 'Présences', 
+      key: 'attendance',
+      active: activeSection === 'attendance'
+    },
     { icon: FileText, label: 'Devoirs' },
     { icon: Calendar, label: 'Emploi du temps' },
     { icon: CreditCard, label: 'Frais' },

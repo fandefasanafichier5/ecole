@@ -21,7 +21,7 @@ const Attendance = () => {
     'Richi Akon'
   ];
 
-  // Sample attendance data (✓ for present, ✗ for absent, - for no data)
+  // Sample attendance data (1 for present, 0 for absent, -1 for no data)
   const getAttendanceStatus = (studentIndex: number, day: number) => {
     // Create a pattern for demonstration
     const patterns = [
@@ -41,11 +41,11 @@ const Attendance = () => {
 
   const renderAttendanceIcon = (status: number) => {
     if (status === 1) {
-      return <span className="text-green-500 font-bold">✓</span>;
+      return <span className="text-green-500 font-bold text-lg">✓</span>;
     } else if (status === 0) {
-      return <span className="text-red-500 font-bold">✗</span>;
+      return <span className="text-red-500 font-bold text-lg">✗</span>;
     } else {
-      return <span className="text-gray-400">-</span>;
+      return <span className="text-gray-400 text-lg">-</span>;
     }
   };
 
@@ -66,7 +66,7 @@ const Attendance = () => {
       <div className="mb-6">
         <div className="flex items-center text-sm text-gray-600 mb-2">
           <span>Home</span>
-          <span className="mx-2">/</span>
+          <span className="mx-2">></span>
           <span className="text-orange-500">Attendance</span>
         </div>
         <h1 className="text-2xl font-bold text-gray-800">Student Attendance</h1>
@@ -82,7 +82,7 @@ const Attendance = () => {
             <select
               value={selectedClass}
               onChange={(e) => setSelectedClass(e.target.value)}
-              className="w-full px-3 py-2 bg-gray-100 border-0 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 text-gray-500"
+              className="w-full px-3 py-3 bg-gray-100 border-0 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 text-gray-500"
             >
               <option value="">Select Class</option>
               <option value="1">Class 1</option>
@@ -96,7 +96,7 @@ const Attendance = () => {
             <select
               value={selectedSection}
               onChange={(e) => setSelectedSection(e.target.value)}
-              className="w-full px-3 py-2 bg-gray-100 border-0 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 text-gray-500"
+              className="w-full px-3 py-3 bg-gray-100 border-0 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 text-gray-500"
             >
               <option value="">Select Section</option>
               <option value="A">Section A</option>
@@ -110,7 +110,7 @@ const Attendance = () => {
             <select
               value={selectedMonth}
               onChange={(e) => setSelectedMonth(e.target.value)}
-              className="w-full px-3 py-2 bg-gray-100 border-0 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 text-gray-500"
+              className="w-full px-3 py-3 bg-gray-100 border-0 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 text-gray-500"
             >
               <option value="">Select Month</option>
               <option value="january">January</option>
@@ -133,7 +133,7 @@ const Attendance = () => {
             <select
               value={selectedSession}
               onChange={(e) => setSelectedSession(e.target.value)}
-              className="w-full px-3 py-2 bg-gray-100 border-0 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 text-gray-500"
+              className="w-full px-3 py-3 bg-gray-100 border-0 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 text-gray-500"
             >
               <option value="">Select Session</option>
               <option value="2023-2024">2023-2024</option>
@@ -146,13 +146,13 @@ const Attendance = () => {
         <div className="flex space-x-4">
           <button
             onClick={handleSave}
-            className="bg-orange-500 text-white px-8 py-2 rounded-md hover:bg-orange-600 transition-colors font-medium"
+            className="bg-orange-500 text-white px-8 py-3 rounded-md hover:bg-orange-600 transition-colors font-medium"
           >
             Save
           </button>
           <button
             onClick={handleReset}
-            className="bg-slate-800 text-white px-8 py-2 rounded-md hover:bg-slate-900 transition-colors font-medium"
+            className="bg-slate-800 text-white px-8 py-3 rounded-md hover:bg-slate-900 transition-colors font-medium"
           >
             Reset
           </button>
@@ -169,11 +169,11 @@ const Attendance = () => {
           <table className="w-full">
             <thead className="bg-gray-50 border-b border-gray-200">
               <tr>
-                <th className="px-4 py-3 text-left text-sm font-medium text-gray-700 sticky left-0 bg-gray-50 min-w-[150px]">
+                <th className="px-4 py-3 text-left text-sm font-medium text-gray-700 sticky left-0 bg-gray-50 min-w-[150px] border-r border-gray-200">
                   Students
                 </th>
                 {days.map((day) => (
-                  <th key={day} className="px-2 py-3 text-center text-sm font-medium text-gray-700 min-w-[40px]">
+                  <th key={day} className="px-3 py-3 text-center text-sm font-medium text-gray-700 min-w-[40px]">
                     {day}
                   </th>
                 ))}
@@ -186,7 +186,7 @@ const Attendance = () => {
                     {student}
                   </td>
                   {days.map((day) => (
-                    <td key={day} className="px-2 py-3 text-center text-sm min-w-[40px]">
+                    <td key={day} className="px-3 py-3 text-center text-sm min-w-[40px]">
                       {renderAttendanceIcon(getAttendanceStatus(studentIndex, day))}
                     </td>
                   ))}

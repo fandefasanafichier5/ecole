@@ -13,6 +13,7 @@ import FeesCollection from './components/FeesCollection';
 import StudentDetails from './components/StudentDetails';
 import AllStudentsData from './components/AllStudentsData';
 import AdmissionForm from './components/AdmissionForm';
+import Attendance from './components/Attendance';
 import { Users, GraduationCap, BookOpen, DollarSign } from 'lucide-react';
 
 function App() {
@@ -64,6 +65,16 @@ function App() {
                 <p className="text-gray-600">Cette section sera développée prochainement.</p>
               </div>
             </div>
+          </>
+        );
+      case 'attendance':
+        return (
+          <>
+            <Header 
+              title="Présences" 
+              breadcrumb={['Accueil', 'Présences']} 
+            />
+            <Attendance />
           </>
         );
       case 'account':
