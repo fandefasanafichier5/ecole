@@ -19,7 +19,7 @@ const ExpensesChart = () => {
           <div key={index} className="flex flex-col items-center flex-1">
             <div className={`${expense.color} ${expense.height} w-full rounded-t mb-2`}></div>
             <div className="text-center">
-              <div className="text-sm font-semibold text-gray-800">₹{expense.value.toLocaleString()}</div>
+              <div className="text-sm font-semibold text-gray-800">{expense.value.toLocaleString()} Ar</div>
               <div className="text-xs text-gray-500">{expense.label}</div>
             </div>
           </div>
@@ -28,7 +28,7 @@ const ExpensesChart = () => {
 
       <div className="text-center">
         <div className="text-xs text-gray-500 mb-2">Total</div>
-        <div className="text-lg font-bold text-gray-800">₹39,000</div>
+        <div className="text-lg font-bold text-gray-800">39,000 Ar</div>
       </div>
     </div>
   );

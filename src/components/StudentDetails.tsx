@@ -100,7 +100,7 @@ const StudentDetails = () => {
               </div>
               <div className="flex justify-between">
                 <span className="text-sm text-gray-600">Rôle:</span>
-                <span className="text-sm font-medium text-gray-800">1000$</span>
+                <span className="text-sm font-medium text-gray-800">1000 Ar</span>
               </div>
               <div className="flex justify-between">
                 <span className="text-sm text-gray-600">Adresse:</span>

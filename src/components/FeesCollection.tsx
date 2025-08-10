@@ -147,7 +147,7 @@ const FeesCollection = () => {
                   <td className="px-4 py-3 text-sm text-gray-900">{student.class}</td>
                   <td className="px-4 py-3 text-sm text-gray-900">{student.section}</td>
                   <td className="px-4 py-3 text-sm text-gray-900">{student.expense}</td>
-                  <td className="px-4 py-3 text-sm text-gray-900">{student.amount.toLocaleString()}.00</td>
+                  <td className="px-4 py-3 text-sm text-gray-900">{student.amount.toLocaleString()}.00 Ar</td>
                   <td className="px-4 py-3">
                     <span className={`px-3 py-1 rounded-full text-xs font-medium ${
                       student.status === 'Paid' 

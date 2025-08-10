@@ -107,7 +107,7 @@ function App() {
                 <StatsCard
                   icon={DollarSign}
                   title="Revenus"
-                  value="₹193000"
+                  value="193000 Ar"
                   bgColor="bg-red-100"
                   iconColor="text-red-600"
                 />

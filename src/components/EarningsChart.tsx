@@ -19,10 +19,10 @@ const EarningsChart = () => {
       
       <div className="flex items-end space-x-4 mb-4">
         <div>
-          <span className="text-2xl font-bold text-gray-800">₹75,000</span>
+          <span className="text-2xl font-bold text-gray-800">75,000 Ar</span>
         </div>
         <div>
-          <span className="text-2xl font-bold text-gray-800">₹15,000</span>
+          <span className="text-2xl font-bold text-gray-800">15,000 Ar</span>
         </div>
       </div>
 
