@@ -66,7 +66,7 @@ const Attendance = () => {
       <div className="mb-6">
         <div className="flex items-center text-sm text-gray-600 mb-2">
           <span>Home</span>
-          <span className="mx-2">></span>
+          <span className="mx-2">{'>'}</span>
           <span className="text-orange-500">Attendance</span>
         </div>
         <h1 className="text-2xl font-bold text-gray-800">Student Attendance</h1>
